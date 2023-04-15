@@ -1,0 +1,422 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.0.2 (Python 3.11.3 on win32)" generated="20230415 13:08:40.107" rpa="false" schemaversion="3">
+<suite id="s1" name="Assurity" source="C:\developmet\robot-scripts\assurity\tests\assurity.robot">
+<test id="s1-t1" name="Test API for Assurity" line="12">
+<kw name="Status Code Is 200">
+<tag>API_Headers</tag>
+<doc>Status code of responese is 200</doc>
+<kw name="Create API Session">
+<tag>API_Session</tag>
+<doc>In this part creating request session</doc>
+<kw name="Create Session" library="RequestsLibrary">
+<arg>tmsandbox</arg>
+<arg>${BASE_URL}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20230415 13:08:40.224" level="INFO">Creating Session using : alias=tmsandbox, url=https://api.tmsandbox.co.nz, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20230415 13:08:40.224" endtime="20230415 13:08:40.224"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${SESSION}</arg>
+<arg>tmsandbox</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20230415 13:08:40.225" level="INFO">${SESSION} = tmsandbox</msg>
+<status status="PASS" starttime="20230415 13:08:40.224" endtime="20230415 13:08:40.225"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${params}</var>
+<arg>catalogue=false</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20230415 13:08:40.225" level="INFO">${params} = {'catalogue': 'false'}</msg>
+<status status="PASS" starttime="20230415 13:08:40.225" endtime="20230415 13:08:40.225"/>
+</kw>
+<kw name="GET On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>${SESSION}</arg>
+<arg>/v1/Categories/6327/Details.json\</arg>
+<arg>params=${params}</arg>
+<arg>expected_status=200</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<msg timestamp="20230415 13:08:40.434" level="INFO">GET Request : url=https://api.tmsandbox.co.nz/v1/Categories/6327/Details.json?catalogue=false 
+ path_url=/v1/Categories/6327/Details.json?catalogue=false 
+ headers={'User-Agent': 'python-requests/2.28.2', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20230415 13:08:40.434" level="INFO">GET Response : url=https://api.tmsandbox.co.nz/v1/Categories/6327/Details.json?catalogue=false 
+ status=200, reason=OK 
+ headers={'Connection': 'keep-alive', 'Content-Length': '1398', 'Content-Type': 'application/json', 'ETag': '"XrQ7a3WGz9ANtbrp0tIirJIhAM8="', 'X-Correlation-ID': 'ba9e4efd-35ca-459b-a953-6dddffe66f18', 'X-Request-ID': '5b397947-a275-483b-be00-91fe51226e2b', 'Access-Control-Allow-Origin': '*', 'Access-Control-Expose-Headers': 'ETag', 'X-POWERED-BY': '', 'X-ASPNET-VERSION': '', 'Accept-Ranges': 'bytes', 'Date': 'Sat, 15 Apr 2023 11:08:40 GMT', 'Strict-Transport-Security': 'max-age=31536000', 'X-Frame-Options': 'SAMEORIGIN', 'X-Content-Type-Options': 'nosniff', 'Referrer-Policy': 'no-referrer'} 
+ body={"CategoryId":6327,"Name":"Carbon credits","Path":"\/Business-farming-industry\/Carbon-credits","CanListAuctions":true,"CanListClassifieds":true,"CanRelist":true,"LegalNotice":"Compliance Declaration\u000aI confirm that these carbon credits are certified and registered with a carbon credits registry. ","DefaultDuration":14,"AllowedDurations":[2,3,4,5,6,7,10,14],"Fees":{"Bundle":15.0000,"EndDate":0.2500,"Feature":10.0000,"Gallery":2.0000,"Listing":29.0000,"Reserve":0.2500,"Subtitle":0.5500,"TenDays":0.2500,"ListingFeeTiers":[{"MinimumTierPrice":0,"FixedFee":29.00}],"SecondCategory":0.9900},"FreePhotoCount":20,"MaximumPhotoCount":20,"IsFreeToRelist":true,"Promotions":[{"Id":1,"Name":"Basic","Description":"Lowest position in category","Price":0.0000,"MinimumPhotoCount":0},{"Id":2,"Name":"Gallery","Description":"Good position in category","Price":2.0000,"OriginalPrice":2.0000,"MinimumPhotoCount":0},{"Id":3,"Name":"Feature","Description":"Better position in category","Price":10.0000,"OriginalPrice":10.0000,"Recommended":true,"MinimumPhotoCount":0},{"Id":4,"Name":"Feature Combo","Description":"Best position in category \u000aIncludes benefits of Feature \u000aHighlights listing in search results","Price":15.0000,"OriginalPrice":15.0000,"MinimumPhotoCount":0}],"EmbeddedContentOptions":[],"MaximumTitleLength":80,"AreaOfBusiness":1,"DefaultRelistDuration":7,"CanUseCounterOffers":true} 
+ </msg>
+<msg timestamp="20230415 13:08:40.434" level="INFO">C:\Users\Dell\AppData\Local\Programs\Python\Python311\Lib\site-packages\urllib3\connectionpool.py:1045: InsecureRequestWarning: Unverified HTTPS request is being made to host 'api.tmsandbox.co.nz'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20230415 13:08:40.436" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20230415 13:08:40.226" endtime="20230415 13:08:40.436"/>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<arg>${RESPONSE}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<msg timestamp="20230415 13:08:40.438" level="INFO">${RESPONSE} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20230415 13:08:40.437" endtime="20230415 13:08:40.438"/>
+</kw>
+<status status="PASS" starttime="20230415 13:08:40.223" endtime="20230415 13:08:40.439"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${status_code}</var>
+<arg>${RESPONSE.status_code}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20230415 13:08:40.442" level="INFO">${status_code} = 200</msg>
+<status status="PASS" starttime="20230415 13:08:40.439" endtime="20230415 13:08:40.443"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${status_code}</arg>
+<arg>200</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20230415 13:08:40.443" endtime="20230415 13:08:40.445"/>
+</kw>
+<status status="PASS" starttime="20230415 13:08:40.223" endtime="20230415 13:08:40.445"/>
+</kw>
+<kw name="Respons Is In Json Format">
+<tag>API_Headers</tag>
+<doc>Response format is Json</doc>
+<kw name="Create API Session">
+<tag>API_Session</tag>
+<doc>In this part creating request session</doc>
+<kw name="Create Session" library="RequestsLibrary">
+<arg>tmsandbox</arg>
+<arg>${BASE_URL}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20230415 13:08:40.448" level="INFO">Creating Session using : alias=tmsandbox, url=https://api.tmsandbox.co.nz, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20230415 13:08:40.447" endtime="20230415 13:08:40.449"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${SESSION}</arg>
+<arg>tmsandbox</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20230415 13:08:40.450" level="INFO">${SESSION} = tmsandbox</msg>
+<status status="PASS" starttime="20230415 13:08:40.449" endtime="20230415 13:08:40.450"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${params}</var>
+<arg>catalogue=false</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20230415 13:08:40.451" level="INFO">${params} = {'catalogue': 'false'}</msg>
+<status status="PASS" starttime="20230415 13:08:40.450" endtime="20230415 13:08:40.451"/>
+</kw>
+<kw name="GET On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>${SESSION}</arg>
+<arg>/v1/Categories/6327/Details.json\</arg>
+<arg>params=${params}</arg>
+<arg>expected_status=200</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<msg timestamp="20230415 13:08:40.612" level="INFO">GET Request : url=https://api.tmsandbox.co.nz/v1/Categories/6327/Details.json?catalogue=false 
+ path_url=/v1/Categories/6327/Details.json?catalogue=false 
+ headers={'User-Agent': 'python-requests/2.28.2', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20230415 13:08:40.612" level="INFO">GET Response : url=https://api.tmsandbox.co.nz/v1/Categories/6327/Details.json?catalogue=false 
+ status=200, reason=OK 
+ headers={'Connection': 'keep-alive', 'Content-Length': '1398', 'Content-Type': 'application/json', 'ETag': '"XrQ7a3WGz9ANtbrp0tIirJIhAM8="', 'X-Correlation-ID': 'c8a47fd3-df7b-4b38-963f-edb95e3f68b8', 'X-Request-ID': '9f7e4787-ab9e-4f84-b0c6-5c5f81403905', 'Access-Control-Allow-Origin': '*', 'Access-Control-Expose-Headers': 'ETag', 'X-POWERED-BY': '', 'X-ASPNET-VERSION': '', 'Accept-Ranges': 'bytes', 'Date': 'Sat, 15 Apr 2023 11:08:40 GMT', 'Strict-Transport-Security': 'max-age=31536000', 'X-Frame-Options': 'SAMEORIGIN', 'X-Content-Type-Options': 'nosniff', 'Referrer-Policy': 'no-referrer'} 
+ body={"CategoryId":6327,"Name":"Carbon credits","Path":"\/Business-farming-industry\/Carbon-credits","CanListAuctions":true,"CanListClassifieds":true,"CanRelist":true,"LegalNotice":"Compliance Declaration\u000aI confirm that these carbon credits are certified and registered with a carbon credits registry. ","DefaultDuration":14,"AllowedDurations":[2,3,4,5,6,7,10,14],"Fees":{"Bundle":15.0000,"EndDate":0.2500,"Feature":10.0000,"Gallery":2.0000,"Listing":29.0000,"Reserve":0.2500,"Subtitle":0.5500,"TenDays":0.2500,"ListingFeeTiers":[{"MinimumTierPrice":0,"FixedFee":29.00}],"SecondCategory":0.9900},"FreePhotoCount":20,"MaximumPhotoCount":20,"IsFreeToRelist":true,"Promotions":[{"Id":1,"Name":"Basic","Description":"Lowest position in category","Price":0.0000,"MinimumPhotoCount":0},{"Id":2,"Name":"Gallery","Description":"Good position in category","Price":2.0000,"OriginalPrice":2.0000,"MinimumPhotoCount":0},{"Id":3,"Name":"Feature","Description":"Better position in category","Price":10.0000,"OriginalPrice":10.0000,"Recommended":true,"MinimumPhotoCount":0},{"Id":4,"Name":"Feature Combo","Description":"Best position in category \u000aIncludes benefits of Feature \u000aHighlights listing in search results","Price":15.0000,"OriginalPrice":15.0000,"MinimumPhotoCount":0}],"EmbeddedContentOptions":[],"MaximumTitleLength":80,"AreaOfBusiness":1,"DefaultRelistDuration":7,"CanUseCounterOffers":true} 
+ </msg>
+<msg timestamp="20230415 13:08:40.612" level="INFO">C:\Users\Dell\AppData\Local\Programs\Python\Python311\Lib\site-packages\urllib3\connectionpool.py:1045: InsecureRequestWarning: Unverified HTTPS request is being made to host 'api.tmsandbox.co.nz'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20230415 13:08:40.614" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20230415 13:08:40.451" endtime="20230415 13:08:40.614"/>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<arg>${RESPONSE}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<msg timestamp="20230415 13:08:40.616" level="INFO">${RESPONSE} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20230415 13:08:40.615" endtime="20230415 13:08:40.616"/>
+</kw>
+<status status="PASS" starttime="20230415 13:08:40.446" endtime="20230415 13:08:40.616"/>
+</kw>
+<kw name="Get From Dictionary" library="Collections">
+<var>${contentTypeValue}</var>
+<arg>${RESPONSE.headers}</arg>
+<arg>Content-Type</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<msg timestamp="20230415 13:08:40.618" level="INFO">${contentTypeValue} = application/json</msg>
+<status status="PASS" starttime="20230415 13:08:40.617" endtime="20230415 13:08:40.619"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${contentTypeValue}</arg>
+<arg>application/json</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20230415 13:08:40.619" endtime="20230415 13:08:40.620"/>
+</kw>
+<status status="PASS" starttime="20230415 13:08:40.446" endtime="20230415 13:08:40.621"/>
+</kw>
+<kw name="Verify If Name Contain Proper Value">
+<tag>AC1</tag>
+<tag>API_Body</tag>
+<doc>Verify if response name is Carbon credits</doc>
+<kw name="Create API Session">
+<tag>API_Session</tag>
+<doc>In this part creating request session</doc>
+<kw name="Create Session" library="RequestsLibrary">
+<arg>tmsandbox</arg>
+<arg>${BASE_URL}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20230415 13:08:40.626" level="INFO">Creating Session using : alias=tmsandbox, url=https://api.tmsandbox.co.nz, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20230415 13:08:40.625" endtime="20230415 13:08:40.626"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${SESSION}</arg>
+<arg>tmsandbox</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20230415 13:08:40.628" level="INFO">${SESSION} = tmsandbox</msg>
+<status status="PASS" starttime="20230415 13:08:40.627" endtime="20230415 13:08:40.628"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${params}</var>
+<arg>catalogue=false</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20230415 13:08:40.630" level="INFO">${params} = {'catalogue': 'false'}</msg>
+<status status="PASS" starttime="20230415 13:08:40.629" endtime="20230415 13:08:40.630"/>
+</kw>
+<kw name="GET On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>${SESSION}</arg>
+<arg>/v1/Categories/6327/Details.json\</arg>
+<arg>params=${params}</arg>
+<arg>expected_status=200</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<msg timestamp="20230415 13:08:41.222" level="INFO">GET Request : url=https://api.tmsandbox.co.nz/v1/Categories/6327/Details.json?catalogue=false 
+ path_url=/v1/Categories/6327/Details.json?catalogue=false 
+ headers={'User-Agent': 'python-requests/2.28.2', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20230415 13:08:41.223" level="INFO">GET Response : url=https://api.tmsandbox.co.nz/v1/Categories/6327/Details.json?catalogue=false 
+ status=200, reason=OK 
+ headers={'Connection': 'keep-alive', 'Content-Length': '1398', 'Content-Type': 'application/json', 'ETag': '"XrQ7a3WGz9ANtbrp0tIirJIhAM8="', 'X-Correlation-ID': '0d37cc43-7edc-423b-8a36-8ac142c3607e', 'X-Request-ID': '95f17569-2368-4bc2-b399-b8d9d95b012e', 'Access-Control-Allow-Origin': '*', 'Access-Control-Expose-Headers': 'ETag', 'X-POWERED-BY': '', 'X-ASPNET-VERSION': '', 'Accept-Ranges': 'bytes', 'Date': 'Sat, 15 Apr 2023 11:08:40 GMT', 'Strict-Transport-Security': 'max-age=31536000', 'X-Frame-Options': 'SAMEORIGIN', 'X-Content-Type-Options': 'nosniff', 'Referrer-Policy': 'no-referrer'} 
+ body={"CategoryId":6327,"Name":"Carbon credits","Path":"\/Business-farming-industry\/Carbon-credits","CanListAuctions":true,"CanListClassifieds":true,"CanRelist":true,"LegalNotice":"Compliance Declaration\u000aI confirm that these carbon credits are certified and registered with a carbon credits registry. ","DefaultDuration":14,"AllowedDurations":[2,3,4,5,6,7,10,14],"Fees":{"Bundle":15.0000,"EndDate":0.2500,"Feature":10.0000,"Gallery":2.0000,"Listing":29.0000,"Reserve":0.2500,"Subtitle":0.5500,"TenDays":0.2500,"ListingFeeTiers":[{"MinimumTierPrice":0,"FixedFee":29.00}],"SecondCategory":0.9900},"FreePhotoCount":20,"MaximumPhotoCount":20,"IsFreeToRelist":true,"Promotions":[{"Id":1,"Name":"Basic","Description":"Lowest position in category","Price":0.0000,"MinimumPhotoCount":0},{"Id":2,"Name":"Gallery","Description":"Good position in category","Price":2.0000,"OriginalPrice":2.0000,"MinimumPhotoCount":0},{"Id":3,"Name":"Feature","Description":"Better position in category","Price":10.0000,"OriginalPrice":10.0000,"Recommended":true,"MinimumPhotoCount":0},{"Id":4,"Name":"Feature Combo","Description":"Best position in category \u000aIncludes benefits of Feature \u000aHighlights listing in search results","Price":15.0000,"OriginalPrice":15.0000,"MinimumPhotoCount":0}],"EmbeddedContentOptions":[],"MaximumTitleLength":80,"AreaOfBusiness":1,"DefaultRelistDuration":7,"CanUseCounterOffers":true} 
+ </msg>
+<msg timestamp="20230415 13:08:41.223" level="INFO">C:\Users\Dell\AppData\Local\Programs\Python\Python311\Lib\site-packages\urllib3\connectionpool.py:1045: InsecureRequestWarning: Unverified HTTPS request is being made to host 'api.tmsandbox.co.nz'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20230415 13:08:41.224" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20230415 13:08:40.630" endtime="20230415 13:08:41.224"/>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<arg>${RESPONSE}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<msg timestamp="20230415 13:08:41.225" level="INFO">${RESPONSE} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20230415 13:08:41.225" endtime="20230415 13:08:41.225"/>
+</kw>
+<status status="PASS" starttime="20230415 13:08:40.623" endtime="20230415 13:08:41.226"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${body_content}</var>
+<arg>${RESPONSE.content}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20230415 13:08:41.227" level="INFO">${body_content} = {"CategoryId":6327,"Name":"Carbon credits","Path":"\/Business-farming-industry\/Carbon-credits","CanListAuctions":true,"CanListClassifieds":true,"CanRelist":true,"LegalNotice":"Compliance Declaration\...</msg>
+<status status="PASS" starttime="20230415 13:08:41.226" endtime="20230415 13:08:41.227"/>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${body_content}</arg>
+<arg>Carbon credits</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" starttime="20230415 13:08:41.227" endtime="20230415 13:08:41.228"/>
+</kw>
+<status status="PASS" starttime="20230415 13:08:40.621" endtime="20230415 13:08:41.228"/>
+</kw>
+<kw name="Test If Canrelist Value Is True">
+<tag>AC2</tag>
+<tag>API_Body</tag>
+<doc>Assertion if CanRelist is on value true</doc>
+<kw name="Create API Session">
+<tag>API_Session</tag>
+<doc>In this part creating request session</doc>
+<kw name="Create Session" library="RequestsLibrary">
+<arg>tmsandbox</arg>
+<arg>${BASE_URL}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20230415 13:08:41.231" level="INFO">Creating Session using : alias=tmsandbox, url=https://api.tmsandbox.co.nz, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20230415 13:08:41.230" endtime="20230415 13:08:41.231"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${SESSION}</arg>
+<arg>tmsandbox</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20230415 13:08:41.232" level="INFO">${SESSION} = tmsandbox</msg>
+<status status="PASS" starttime="20230415 13:08:41.231" endtime="20230415 13:08:41.232"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${params}</var>
+<arg>catalogue=false</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20230415 13:08:41.233" level="INFO">${params} = {'catalogue': 'false'}</msg>
+<status status="PASS" starttime="20230415 13:08:41.232" endtime="20230415 13:08:41.233"/>
+</kw>
+<kw name="GET On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>${SESSION}</arg>
+<arg>/v1/Categories/6327/Details.json\</arg>
+<arg>params=${params}</arg>
+<arg>expected_status=200</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<msg timestamp="20230415 13:08:41.423" level="INFO">GET Request : url=https://api.tmsandbox.co.nz/v1/Categories/6327/Details.json?catalogue=false 
+ path_url=/v1/Categories/6327/Details.json?catalogue=false 
+ headers={'User-Agent': 'python-requests/2.28.2', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20230415 13:08:41.423" level="INFO">GET Response : url=https://api.tmsandbox.co.nz/v1/Categories/6327/Details.json?catalogue=false 
+ status=200, reason=OK 
+ headers={'Connection': 'keep-alive', 'Content-Length': '1398', 'Content-Type': 'application/json', 'ETag': '"XrQ7a3WGz9ANtbrp0tIirJIhAM8="', 'X-Correlation-ID': 'eb83636f-01fe-4dd2-8c4c-3b282376c3f0', 'X-Request-ID': 'e675bc02-091e-420c-86a1-58c1119f0c7a', 'Access-Control-Allow-Origin': '*', 'Access-Control-Expose-Headers': 'ETag', 'X-POWERED-BY': '', 'X-ASPNET-VERSION': '', 'Accept-Ranges': 'bytes', 'Date': 'Sat, 15 Apr 2023 11:08:41 GMT', 'Strict-Transport-Security': 'max-age=31536000', 'X-Frame-Options': 'SAMEORIGIN', 'X-Content-Type-Options': 'nosniff', 'Referrer-Policy': 'no-referrer'} 
+ body={"CategoryId":6327,"Name":"Carbon credits","Path":"\/Business-farming-industry\/Carbon-credits","CanListAuctions":true,"CanListClassifieds":true,"CanRelist":true,"LegalNotice":"Compliance Declaration\u000aI confirm that these carbon credits are certified and registered with a carbon credits registry. ","DefaultDuration":14,"AllowedDurations":[2,3,4,5,6,7,10,14],"Fees":{"Bundle":15.0000,"EndDate":0.2500,"Feature":10.0000,"Gallery":2.0000,"Listing":29.0000,"Reserve":0.2500,"Subtitle":0.5500,"TenDays":0.2500,"ListingFeeTiers":[{"MinimumTierPrice":0,"FixedFee":29.00}],"SecondCategory":0.9900},"FreePhotoCount":20,"MaximumPhotoCount":20,"IsFreeToRelist":true,"Promotions":[{"Id":1,"Name":"Basic","Description":"Lowest position in category","Price":0.0000,"MinimumPhotoCount":0},{"Id":2,"Name":"Gallery","Description":"Good position in category","Price":2.0000,"OriginalPrice":2.0000,"MinimumPhotoCount":0},{"Id":3,"Name":"Feature","Description":"Better position in category","Price":10.0000,"OriginalPrice":10.0000,"Recommended":true,"MinimumPhotoCount":0},{"Id":4,"Name":"Feature Combo","Description":"Best position in category \u000aIncludes benefits of Feature \u000aHighlights listing in search results","Price":15.0000,"OriginalPrice":15.0000,"MinimumPhotoCount":0}],"EmbeddedContentOptions":[],"MaximumTitleLength":80,"AreaOfBusiness":1,"DefaultRelistDuration":7,"CanUseCounterOffers":true} 
+ </msg>
+<msg timestamp="20230415 13:08:41.424" level="INFO">C:\Users\Dell\AppData\Local\Programs\Python\Python311\Lib\site-packages\urllib3\connectionpool.py:1045: InsecureRequestWarning: Unverified HTTPS request is being made to host 'api.tmsandbox.co.nz'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20230415 13:08:41.428" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20230415 13:08:41.233" endtime="20230415 13:08:41.428"/>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<arg>${RESPONSE}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<msg timestamp="20230415 13:08:41.430" level="INFO">${RESPONSE} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20230415 13:08:41.429" endtime="20230415 13:08:41.430"/>
+</kw>
+<status status="PASS" starttime="20230415 13:08:41.230" endtime="20230415 13:08:41.430"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${json_data}</var>
+<arg>${RESPONSE.json()}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20230415 13:08:41.434" level="INFO">${json_data} = {'CategoryId': 6327, 'Name': 'Carbon credits', 'Path': '/Business-farming-industry/Carbon-credits', 'CanListAuctions': True, 'CanListClassifieds': True, 'CanRelist': True, 'LegalNotice': 'Compliance D...</msg>
+<status status="PASS" starttime="20230415 13:08:41.431" endtime="20230415 13:08:41.434"/>
+</kw>
+<kw name="Should Be True" library="BuiltIn">
+<arg>${json_data['CanRelist']}</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" starttime="20230415 13:08:41.434" endtime="20230415 13:08:41.438"/>
+</kw>
+<status status="PASS" starttime="20230415 13:08:41.229" endtime="20230415 13:08:41.438"/>
+</kw>
+<kw name="Test If Gallery Contain Text - Good Position In Category">
+<tag>AC3</tag>
+<tag>API_Body</tag>
+<doc>Check if Category Gallery contain element Description Good position in category</doc>
+<kw name="Set Variable" library="BuiltIn">
+<var>${json_data}</var>
+<arg>${RESPONSE.json()}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20230415 13:08:41.442" level="INFO">${json_data} = {'CategoryId': 6327, 'Name': 'Carbon credits', 'Path': '/Business-farming-industry/Carbon-credits', 'CanListAuctions': True, 'CanListClassifieds': True, 'CanRelist': True, 'LegalNotice': 'Compliance D...</msg>
+<status status="PASS" starttime="20230415 13:08:41.440" endtime="20230415 13:08:41.442"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${promotions}</var>
+<arg>${json_data['Promotions']}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20230415 13:08:41.444" level="INFO">${promotions} = [{'Id': 1, 'Name': 'Basic', 'Description': 'Lowest position in category', 'Price': 0.0, 'MinimumPhotoCount': 0}, {'Id': 2, 'Name': 'Gallery', 'Description': 'Good position in category', 'Price': 2.0, ...</msg>
+<status status="PASS" starttime="20230415 13:08:41.443" endtime="20230415 13:08:41.445"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${gallery_promotion}</var>
+<arg>${EMPTY}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20230415 13:08:41.446" level="INFO">${gallery_promotion} = </msg>
+<status status="PASS" starttime="20230415 13:08:41.445" endtime="20230415 13:08:41.446"/>
+</kw>
+<for flavor="IN">
+<var>${promotion}</var>
+<value>@{promotions}</value>
+<iter>
+<var name="${promotion}">{'Id': 1, 'Name': 'Basic', 'Description': 'Lowest position in category', 'Price': 0.0, 'MinimumPhotoCount': 0}</var>
+<if>
+<branch type="IF" condition="'${promotion['Name']}' == 'Gallery'">
+<kw name="Set Variable" library="BuiltIn">
+<var>${gallery_promotion}</var>
+<arg>${promotion}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20230415 13:08:41.449" endtime="20230415 13:08:41.449"/>
+</kw>
+<status status="NOT RUN" starttime="20230415 13:08:41.447" endtime="20230415 13:08:41.449"/>
+</branch>
+<status status="PASS" starttime="20230415 13:08:41.447" endtime="20230415 13:08:41.449"/>
+</if>
+<status status="PASS" starttime="20230415 13:08:41.447" endtime="20230415 13:08:41.449"/>
+</iter>
+<iter>
+<var name="${promotion}">{'Id': 2, 'Name': 'Gallery', 'Description': 'Good position in category', 'Price': 2.0, 'OriginalPrice': 2.0, 'MinimumPhotoCount': 0}</var>
+<if>
+<branch type="IF" condition="'${promotion['Name']}' == 'Gallery'">
+<kw name="Set Variable" library="BuiltIn">
+<var>${gallery_promotion}</var>
+<arg>${promotion}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20230415 13:08:41.452" level="INFO">${gallery_promotion} = {'Id': 2, 'Name': 'Gallery', 'Description': 'Good position in category', 'Price': 2.0, 'OriginalPrice': 2.0, 'MinimumPhotoCount': 0}</msg>
+<status status="PASS" starttime="20230415 13:08:41.451" endtime="20230415 13:08:41.452"/>
+</kw>
+<status status="PASS" starttime="20230415 13:08:41.450" endtime="20230415 13:08:41.452"/>
+</branch>
+<status status="PASS" starttime="20230415 13:08:41.450" endtime="20230415 13:08:41.452"/>
+</if>
+<status status="PASS" starttime="20230415 13:08:41.450" endtime="20230415 13:08:41.452"/>
+</iter>
+<iter>
+<var name="${promotion}">{'Id': 3, 'Name': 'Feature', 'Description': 'Better position in category', 'Price': 10.0, 'OriginalPrice': 10.0, 'Recommended': True, 'MinimumPhotoCount': 0}</var>
+<if>
+<branch type="IF" condition="'${promotion['Name']}' == 'Gallery'">
+<kw name="Set Variable" library="BuiltIn">
+<var>${gallery_promotion}</var>
+<arg>${promotion}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20230415 13:08:41.456" endtime="20230415 13:08:41.456"/>
+</kw>
+<status status="NOT RUN" starttime="20230415 13:08:41.453" endtime="20230415 13:08:41.456"/>
+</branch>
+<status status="PASS" starttime="20230415 13:08:41.452" endtime="20230415 13:08:41.456"/>
+</if>
+<status status="PASS" starttime="20230415 13:08:41.452" endtime="20230415 13:08:41.456"/>
+</iter>
+<iter>
+<var name="${promotion}">{'Id': 4, 'Name': 'Feature Combo', 'Description': 'Best position in category \nIncludes benefits of Feature \nHighlights listing in search results', 'Price': 15.0, 'OriginalPrice': 15.0, 'MinimumPhoto...</var>
+<if>
+<branch type="IF" condition="'${promotion['Name']}' == 'Gallery'">
+<kw name="Set Variable" library="BuiltIn">
+<var>${gallery_promotion}</var>
+<arg>${promotion}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20230415 13:08:41.458" endtime="20230415 13:08:41.458"/>
+</kw>
+<status status="NOT RUN" starttime="20230415 13:08:41.457" endtime="20230415 13:08:41.458"/>
+</branch>
+<status status="PASS" starttime="20230415 13:08:41.457" endtime="20230415 13:08:41.458"/>
+</if>
+<status status="PASS" starttime="20230415 13:08:41.456" endtime="20230415 13:08:41.458"/>
+</iter>
+<status status="PASS" starttime="20230415 13:08:41.447" endtime="20230415 13:08:41.458"/>
+</for>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${gallery_promotion['Description']}</arg>
+<arg>Good position in category</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" starttime="20230415 13:08:41.458" endtime="20230415 13:08:41.459"/>
+</kw>
+<status status="PASS" starttime="20230415 13:08:41.439" endtime="20230415 13:08:41.459"/>
+</kw>
+<doc>Test case for Assurity metoda Get</doc>
+<tag>AC1</tag>
+<tag>AC2</tag>
+<tag>AC3</tag>
+<status status="PASS" starttime="20230415 13:08:40.222" endtime="20230415 13:08:41.460"/>
+</test>
+<doc>API tests for Assurity Interview</doc>
+<status status="PASS" starttime="20230415 13:08:40.108" endtime="20230415 13:08:41.465"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">AC1</stat>
+<stat pass="1" fail="0" skip="0">AC2</stat>
+<stat pass="1" fail="0" skip="0">AC3</stat>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Assurity">Assurity</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
