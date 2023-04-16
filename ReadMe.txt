@@ -43,4 +43,3 @@ Running the test:
 5. You can find the outputs in the "report.html" file.
 
 
-robot -d results tests/fnk_copy.robot
